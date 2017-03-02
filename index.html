@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>
+		messi
+	</title>
+	<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
+	<script src="js/jQuery-2.1.4.min.js"></script>
+	<style>
+		#canvas_div{
+			padding:20px;
+			text-align:center;
+		}
+		input{
+			width: 80px;
+			line-height: 25px;
+			background-color:pink;
+			text-align: center;
+   	 		-moz-box-shadow: 0 1px 0px rgba(0,0,0,0.6);
+    		-webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.6);
+			border-radius: 5%;
+			cursor: pointer; 
+			background-image: url("src/莎莉.png");
+		}
+		canvas{
+			border: 2px;
+			border-color: black;
+			border-style: solid;			
+		}
+		select{
+		    background: pink;
+		    padding-left: 10px;
+		    width: 120px;
+		    height: 30px;
+   	 		-moz-box-shadow: 0 1px 0px rgba(0,0,0,0.6);
+    		-webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.6);
+		}
+		.character{
+			display: inline-block;
+		}
+	</style>
+</head>	
+<body style="background-image:url(src/2.jpg);background-repeat:no-repeat;background-size:cover;">
+	<div style="display:inline-block;">
+		<div style="float:left;height:60px;">
+			<select id="level">
+				<option value="0">等级1：安稳</option>
+				<option value="1">等级2：嘚瑟</option>
+				<option value="2">等级3：疯狂</option>
+			</select>	
+			<input type="button" id="addPig" value="点击添加pig" />
+			<input type="button" id="canNotGetPig" value="添加一个永远抓不到的PigHip">
+			<input type="button" id="reset" value="重置游戏">
+			<span id="prompt" style="display:none;">重置小球得分会减少两分</span>
+			<input type="button" onclick="Choose();" value="选择角色" />		
+		</div>
+		<div style="float:left;margin-left:10px;display:none;" id="images">
+			<div class="character">
+				<a href="#" onclick="Check(1);"><img class="image" src="src/布朗熊.png" alt="布朗熊" style="width:50px;height:50px;"></a>
+			</div>
+			<div class="character">
+				<a href="#" onclick="Check(2);"><img class="image" src="src/妮可兔.png" alt="妮可兔" style="width:50px;height:50px;"></a>
+			</div>
+			<div class="character">
+				<a href="#" onclick="Check(3);"><img class="image" src="src/莎莉.png" alt="莎莉" style="width:50px;height:50px;"></a>
+			</div>
+		</div>		
+	</div>
+
+	<div style="clear:left;">
+		<div id="canvas_div" style="margin-top:300px;">
+			<canvas id="can"></canvas>
+		</div>		
+	</div>
+	<script src="js\hip.js"></script>
+	<script>
+
+		$("#reset_smal").hover(function() {
+			$("#prompt").css({
+				display: 'inline-block'
+			});
+		}, function() {
+			$("#prompt").css({
+				display: 'none'
+			});
+		});
+		function Choose(){
+			$('#images').css('display','block');
+		}
+		function Check(i){
+			$('#images').css('display','none');
+		}
+	</script>
+</body>
+</html>
